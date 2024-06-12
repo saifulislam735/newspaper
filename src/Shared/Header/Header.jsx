@@ -25,9 +25,9 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
                         <Nav className="mx-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#about">About</Nav.Link>
-                            <Nav.Link href="#career">Career</Nav.Link>
+                            <Nav.Link href="/">Home</Nav.Link>
+                            <Nav.Link href="/">About</Nav.Link>
+                            <Nav.Link href="/">Career</Nav.Link>
                         </Nav>
                         <Nav className="ml-auto d-flex align-items-centers justify-content-center gap-2">
                             <Nav href="#profile">

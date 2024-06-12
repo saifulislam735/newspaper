@@ -2,7 +2,7 @@
 
 const Footer = () => {
     return (
-        <div>
+        <div className="container">
             <p>This is footer</p>
         </div>
     );

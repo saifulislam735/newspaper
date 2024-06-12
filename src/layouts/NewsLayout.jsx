@@ -3,22 +3,17 @@
 import { Col, Container, Row } from "react-bootstrap";
 import Footer from "../Shared/Footer/Footer";
 import Header from "../Shared/Header/Header";
-import LeftNav from "../Shared/LeftNav/LeftNav";
 import RightNav from "../Shared/RightNav/RightNav";
 // import News from "../pages/Home/News/News";
 import { Outlet } from "react-router-dom";
 
-const Main = () => {
+const FullNews = () => {
     return (
         <div>
             <Header></Header>
             <Container>
                 <Row>
-                    <Col lg={3}>
-                        <LeftNav></LeftNav>
-                    </Col>
-
-                    <Col lg={6}>
+                    <Col lg={9}>
                         {/* <News></News> */}
                         <Outlet></Outlet>
                     </Col>
@@ -34,4 +29,4 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default FullNews;
