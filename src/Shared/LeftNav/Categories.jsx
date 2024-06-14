@@ -1,8 +1,8 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import News from "../../pages/Home/News/News";
 
 const Categories = () => {
-    const { id } = useParams()
+    // const { id } = useParams()
     const data = useLoaderData()
     // console.log(id, data)
     return (

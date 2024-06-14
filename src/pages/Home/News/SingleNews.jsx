@@ -1,14 +1,14 @@
 import { Button, Image } from "react-bootstrap";
 import { GoArrowLeft } from "react-icons/go";
-import { Link, useLoaderData, useLocation } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const SingleNews = () => {
     // const { id } = useParams()
     const news = useLoaderData()
     const { title, details, image_url, category_id } = news;
     // console.log(id, news)
-    const location = useLocation()
-    console.log(location, 'single')
+    // const location = useLocation()
+    // console.log(location, 'single')
     return (
         <div className="px-4">
             <Image className="mt-4" src={image_url} fluid alt="" />
