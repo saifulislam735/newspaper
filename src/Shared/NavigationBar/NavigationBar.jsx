@@ -9,7 +9,7 @@ import { AuthContext } from '../../pages/Provider/AuthProvider';
 const NavigationBar = () => {
 
     const { user, logout } = useContext(AuthContext)
-    console.log(user)
+    // console.log(user)
     return (
         <Container>
             <Navbar bg="light" expand="lg">
@@ -25,7 +25,7 @@ const NavigationBar = () => {
                             <Nav to="/profile">
                                 <div
                                     className='m-0 pt-2 me-2' >
-                                    {user ? <span>{user.displayName}</span> : ''}
+                                    {user ? <span>{user.displayName || user.email}</span> : ''}
                                 </div>
                                 <p>
                                     <FaCircleUser style={{ height: '40px', width: '40px' }} />
@@ -33,7 +33,7 @@ const NavigationBar = () => {
                             </Nav>
                             <Button style={{ height: '40px' }} className='px-4' variant="secondary" >
                                 {user ?
-                                    <Link onClick={logout} style={{ textDecoration: 'none', color: 'white' }} >Logout</Link>
+                                    <Link to={'catagories/0'} onClick={logout} style={{ textDecoration: 'none', color: 'white' }} >Logout</Link>
                                     :
                                     <Link style={{ textDecoration: 'none', color: 'white' }} to={'/login'}>Login</Link>
                                 }
