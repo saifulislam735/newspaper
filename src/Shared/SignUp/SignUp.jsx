@@ -2,11 +2,13 @@ import { useContext, useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { AuthContext } from '../../pages/Provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
     const { creatUser } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const [condition, setCondition] = useState(false);
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -31,16 +33,27 @@ const SignUp = () => {
                 console.log(user);
                 form.reset()
                 setSuccess('Account created successfully')
-                setTimeout(()=>setSuccess(''), 3000)
+                setTimeout(() => setSuccess(''), 3000)
             })
             .catch(error => {
                 console.log(error);
                 setError(error.message);
-                setTimeout(()=>setError(''), 7000)
+                setTimeout(() => setError(''), 7000)
                 // Store error message as a string
             });
     }
 
+    //cheked conition of the terms and condition
+    const handleTermAndCondition = (event) => {
+        const ischecked = event.target.checked;
+        {
+            ischecked ?
+                setCondition(true)
+                :
+                setCondition(false)
+        }
+    }
+    console.log(condition)
     return (
         <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
             <Row className="w-100">
@@ -61,10 +74,11 @@ const SignUp = () => {
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control name='password' id='password' type="password" placeholder="Enter your password" required />
                             </Form.Group>
-                            <Form.Group controlId="formTerms" className="mb-3">
-                                <Form.Check type="checkbox" label="Accept Terms & Conditions" required />
+                            <Form.Group onClick={handleTermAndCondition} controlId="formTerms" className="mb-3 d-flex gap-2">
+                                <Form.Check type="checkbox" required /> <span>Accept <Link to={'/terms'}>Terms & Condition</Link>
+                                </span>
                             </Form.Group>
-                            <Button variant="dark" type="submit" className="w-100">
+                            <Button disabled={!condition} variant="dark" type="submit" className="w-100">
                                 Register
                             </Button>
                         </Form>

@@ -9,6 +9,7 @@ import Login from "../../Shared/Login/Login";
 import SignUp from "../../Shared/SignUp/SignUp";
 import NavigationLayout from "../../layouts/NavigationLayout";
 import PrivateRoute from "../../Shared/PrivateRoute/PrivateRoute";
+import Terms from "../../pages/Terms/Terms";
 
 
 const router = createBrowserRouter([
@@ -59,7 +60,12 @@ const router = createBrowserRouter([
             {
                 path: 'register',
                 element: <SignUp></SignUp>
-            }
+            },
+            {
+                path: 'terms',
+                element: <Terms></Terms>
+            },
+
 
         ],
     },
